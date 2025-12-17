@@ -1,7 +1,12 @@
+import AddBookForm from "../components/addBookForm"
+import Navbar from "../components/Navbar"
 
 function CreatePage(){
   return(
-    <h1>This is create page</h1>
+    <>
+      <Navbar/>
+      <AddBookForm/>
+    </>
   )
 }
 

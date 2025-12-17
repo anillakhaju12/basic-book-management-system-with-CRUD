@@ -1,7 +1,21 @@
-function HomePage(){
-  return(
-    <h1>This is home page</h1>
-  )
+import Card from "../components/Card";
+import Navbar from "../components/Navbar";
+
+function HomePage() {
+  return (
+    <>
+      <Navbar />
+      <div className="flex flex-wrap">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
+
+    </>
+  );
 }
 
-export default HomePage
+export default HomePage;
