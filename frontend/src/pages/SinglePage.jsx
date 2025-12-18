@@ -6,6 +6,7 @@ function SinglePage(){
     <>
     <Navbar />
     <h1>This is single page</h1>
+    <button className="btn-primary">Test button</button>
     </>
   )
 }

@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@layer components{
+  .btn-primary{
+   background-color: rgb(76, 76, 221);
+   color: white;
+   padding: 4px;
+   margin: 1rem;
+   border-radius: 8px;
+  }
+}

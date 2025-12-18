@@ -1,6 +1,16 @@
+import axios from "axios";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Card() {
+  const fetchBooks = async ()=>{
+    return await axios.get("http://localhost:5000/api/books")
+  }
+
+  useEffect(()=>{
+    fetchBooks();
+  },[])
+
   return (
     <Link to="single-page">
       <div

@@ -7,6 +7,7 @@ import SinglePage from './pages/SinglePage'
 function App() {
 
   return (
+
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
