@@ -1,15 +1,7 @@
-import axios from "axios";
-import { useEffect } from "react";
+
 import { Link } from "react-router-dom";
 
-function Card() {
-  const fetchBooks = async ()=>{
-    return await axios.get("http://localhost:5000/api/books")
-  }
-
-  useEffect(()=>{
-    fetchBooks();
-  },[])
+function Card({book}) {
 
   return (
     <Link to="single-page">
@@ -20,17 +12,16 @@ function Card() {
           className="shadow rounded-lg overflow-hidden border"
         />
         <div className="mt-4">
-          <h4 className="font-bold text-xl">Exercises</h4>
+          <h4 className="font-bold text-xl">{book.bookName}</h4>
           <p className="mt-2 text-gray-600">
-            Create Exercises for any subject with the topics you and your
-            students care about.
+            {book.bookAuther}
           </p>
           <div className="mt-5">
             <button
               type="button"
               className="inline-flex items-center rounded-md border border-transparent bg-gray-800 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-gray-900"
             >
-              Start Creating
+              {book.bookPrice}
             </button>
           </div>
         </div>
