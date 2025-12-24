@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Card({book}) {
 
   return (
-    <Link to="single-page">
+    <Link to={`/single-page/${book.id}`}>
       <div
         className="m-5 p-4 max-w-80 bg-indigo-200 rounded-2xl hover:shadow-xl hover:shadow-indigo-50 flex flex-col items-center">
         <img

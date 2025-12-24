@@ -21,7 +21,10 @@ function HomePage() {
         {
           books.map((book)=>{
             return(
-              <Card book ={book} key={book.id}/>
+              <>
+                <Card book ={book} key={book.id}/>
+              </>
+              
             )
           })
         }
