@@ -1,11 +1,14 @@
 import { useState } from "react"
 import Navbar from "../components/Navbar"
+import axios from 'axios'
+import { useNavigate } from "react-router-dom"
 
 function CreatePage(){
+  const navigate = useNavigate()
   const [bookData, setBookData] = useState({
-    bookAuther: "",
-    bookName: "",
-    bookPrice:""
+    Auther: "",
+    Name: "",
+    Price:""
   })
   const handleChange = (event)=>{
     const {name, value } = event.target
@@ -14,6 +17,17 @@ function CreatePage(){
       [name] : value
     })
     console.log(bookData)
+  }
+
+  const handleSubmit=async (event)=>{
+    event.preventDefault();
+    const response = await axios.post('http://localhost:5000/api/books',bookData)
+    if(response.status === 200){
+      alert('book added successfully')
+      navigate("/")
+    }else{
+      alert("Can't add book")
+    }
   }
   return(
     <>
@@ -29,18 +43,18 @@ function CreatePage(){
           </button>
         </div>
         <div className="p-6 h-full w-100 space-y-6">
-          <form action="#">
+          <form onSubmit={handleSubmit}>
             
               <div className="mt-2">
                 <label
-                  htmlFor="bookName"
+                  htmlFor="Name"
                   className="text-sm font-medium text-gray-900 block mb-2"
                 >
                   Book Name
                 </label>
                 <input
                   type="text"
-                  name="bookName"
+                  name="Name"
                   id="product-name"
                   onChange={(event)=>handleChange(event)}
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
@@ -50,14 +64,14 @@ function CreatePage(){
               </div>
               <div className="mt-2">
                 <label
-                  htmlFor="bookAuther"
+                  htmlFor="Auther"
                   className="text-sm font-medium text-gray-900 block mb-2"
                 >
                   Author
                 </label>
                 <input
                   type="text"
-                  name="bookAuther"
+                  name="Auther"
                   id="brand"
                   onChange={(event)=>handleChange(event)}
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
@@ -67,14 +81,14 @@ function CreatePage(){
               </div>
               <div className="mt-2">
                 <label
-                  htmlFor="bookPrice"
+                  htmlFor="Price"
                   className="text-sm font-medium text-gray-900 block mb-2"
                 >
                   Price
                 </label>
                 <input
                   type="number"
-                  name="bookPrice"
+                  name="Price"
                   id="price"
                   onChange={(event)=>handleChange(event)}
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
@@ -82,15 +96,15 @@ function CreatePage(){
                   required
                 />
               </div>
+              <button
+                className="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                type="submit"
+              >
+                Add book
+              </button>
           </form>
         </div>
         <div className="p-6 border-t border-gray-200 rounded-b">
-          <button
-            className="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-            type="submit"
-          >
-            Save all
-          </button>
         </div>
       </div>
     </>
