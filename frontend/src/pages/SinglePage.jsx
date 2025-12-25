@@ -32,7 +32,7 @@ function SinglePage(){
   return (
     <>
       <Navbar/>
-      <SingleBookView bookName = {book.bookName} auther = {book.bookAuther} price = {book.bookPrice} deleteFunc = {deleteBook}/>
+      <SingleBookView bookId = {book.id} bookName = {book.bookName} auther = {book.bookAuther} price = {book.bookPrice} deleteFunc = {deleteBook}/>
     </>
 
   )

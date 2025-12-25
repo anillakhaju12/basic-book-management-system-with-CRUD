@@ -1,4 +1,6 @@
-function SingleBookView({bookName,auther, price, deleteFunc}) {
+import { Link } from "react-router-dom";
+
+function SingleBookView({bookId, bookName,auther, price, deleteFunc}) {
   return (
     <div className="bg-white  min-h-screen flex items-center justify-center p-6">
       <div className="bg-gray-50 dark:bg-gray-800 shadow-lg rounded-2xl overflow-hidden max-w-4xl w-full grid md:grid-cols-2">
@@ -30,6 +32,11 @@ function SingleBookView({bookName,auther, price, deleteFunc}) {
           </div>
           {/* Footer CTA */}
           <div className="mt-6 text-right">
+            <Link to={`/edit-page/${bookId}`}>
+              <button className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-lg transition">
+                Edit Book
+              </button>
+            </Link>
             <button className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-lg transition" onClick={deleteFunc}>
               Delete Book
             </button>
